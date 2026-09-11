@@ -4,6 +4,31 @@
 
 ---
 
+## 🔗 การเชื่อมโยงกับทุก AI แบบ Symlink (Multi-AI Symlink Integration)
+
+ชุดสกิลนี้รองรับการทำ **Symlink (Soft Link)** ไปยัง AI ทุกตัวบนเครื่อง เพื่อให้โค้ดและชุดความคิดอยู่ที่โฟลเดอร์นี้เพียงจุดเดียว (Single Source of Truth) **แก้ไข ปรับปรุง หรือเพิ่มกรณีศึกษาที่นี่ที่เดียว AI ทุกตัวจะอัปเดตตามทันทีโดยไม่ต้องก็อปปี้ซ้ำซ้อน!**
+
+### รันคำสั่ง 1 ครั้งเพื่อเชื่อมโยงกับทุก AI:
+```bash
+./symlink_all_ais.sh
+# หรือรันผ่าน Python
+python3 symlink_all_ais.py
+```
+
+### รองรับ AI และเครื่องมือชั้นนำทั้งหมด:
+| AI / Tool | ตำแหน่งที่ Symlink เชื่อมโยงไป | รูปแบบการทำงาน |
+|---|---|---|
+| **Antigravity / Gemini** | `~/.gemini/config/skills/ten-thinking-dimensions` และ `~/.gemini/skills/` | โหลดเป็น Native Global Skill อัตโนมัติ |
+| **Claude Code** | `~/.claude/skills/ten-thinking-dimensions` และ `ai-brain-core/skills/` | ใช้งานผ่าน Slash Commands / Skill System |
+| **Cursor** | `~/.cursor/rules/ten-thinking-dimensions.mdc` และ `.cursorrules` | บังคับใช้เป็น Global & Workspace AI Rule |
+| **Windsurf (Codeium)** | `.windsurfrules` | กฎจิตใต้สำนึกทางปัญญาของ Workspace |
+| **Cline** | `~/.cline/skills/ten-thinking-dimensions` และ `.clinerules` | Skill และ Workspace Rules |
+| **Roo Code** | `~/.roo/skills/ten-thinking-dimensions` | Roo Coding Agent Skill |
+| **Continue.dev** | `~/.continue/skills/ten-thinking-dimensions` | Assistant Context & Prompts |
+| **GitHub Copilot** | `.github/copilot-instructions.md` | Workspace Instructions ประจำ Repository |
+
+---
+
 ## 💻 วิธีนำไปติดตั้งใช้งานกับเครื่องอื่นๆ (Cross-Machine Portability)
 
 ชุดสกิลนี้ถูกออกแบบให้ **Portable 100%** ไม่มี Path ผูกติดกับเครื่องใดเครื่องหนึ่ง (ใช้ Relative Links ทั้งหมด) คุณสามารถนำไปติดตั้งในคอมพิวเตอร์เครื่องอื่น (Mac, Windows, Linux) ได้อย่างง่ายดายผ่าน 4 รูปแบบ:
