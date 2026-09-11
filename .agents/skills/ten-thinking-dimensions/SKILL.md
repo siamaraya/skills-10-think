@@ -58,16 +58,16 @@ graph TD
 
 | # | มิติการคิด (Dimension) | แกนหลัก | เป้าประสงค์ทางปัญญา | คำถามชี้นำแกนกลาง (Core Prompt) | ผลผลิตเชิงประจักษ์ (Artifact) |
 |---|---|---|---|---|---|
-| **1** | [คิดเชิงวิเคราะห์](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/01_analytical_thinking.md) | **ลึก** | จำแนกองค์ประกอบและหาความสัมพันธ์เชิงเหตุผล | *"เรื่องนี้ประกอบด้วยส่วนย่อยอะไร และส่งผลกระทบถึงกันอย่างไร?"* | แผนผังโครงสร้างเหตุและผล (Root Cause Tree) |
-| **2** | [คิดเชิงวิพากษ์](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/02_critical_thinking.md) | **ลึก** | ตรวจสอบข้อสมมติฐาน ความถูกต้อง และความน่าเชื่อถือ | *"เรื่องนี้จริงแท้แค่ไหน มีหลักฐานอะไรสนับสนุน และมีอคติหรือไม่?"* | ข้อสรุปที่ผ่านการกรองความจริง ปราศจากตรรกะวิบัติ |
-| **3** | [คิดเชิงสังเคราะห์](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/03_synthesis_thinking.md) | **กว้าง** | หลอมรวมองค์ประกอบย่อยให้เกิดเป็นสิ่งใหม่หรือแนวคิดใหม่ | *"นำแก่นสาระเหล่านี้มาถักทอจัดระเบียบใหม่เป็นอะไรได้บ้าง?"* | โมเดลแนวคิดใหม่ หรือนวัตกรรมที่สมบูรณ์ |
-| **4** | [คิดเชิงเปรียบเทียบ](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/04_comparative_thinking.md) | **กว้าง** | ค้นหาความเหมือนและความต่างบนเกณฑ์มาตรฐาน | *"สิ่งเหล่านี้มีความเหมือนและความต่างกันอย่างไรตามเกณฑ์นี้?"* | เมทริกซ์เปรียบเทียบ / อุปมาอุปไมยข้ามศาสตร์ |
-| **5** | [คิดเชิงมโนทัศน์](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/05_conceptual_thinking.md) | **ลึก** | สกัดแก่นแท้นามธรรมให้กลายเป็นความคิดรวบยอด | *"อะไรคือแก่นแท้และสาระสำคัญสูงสุดของปรากฏการณ์นี้?"* | นิยามแก่นหลักการใน 1 ประโยค / โมเดลเชิงสัญลักษณ์ |
-| **6** | [คิดเชิงสร้างสรรค์](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/06_creative_thinking.md) | **กว้าง** | ผลิตแนวคิดแปลกใหม่ ยืดหยุ่น และสร้างมูลค่าเพิ่มเชิงบวก | *"มีทางเลือกอื่นที่แปลกใหม่และสร้างคุณค่าได้มากกว่านี้ไหม?"* | บัญชีไอเดียริเริ่มนอกกรอบเดิม (Divergent Options) |
-| **7** | [คิดเชิงประยุกต์](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/07_applicative_thinking.md) | **กว้าง** | ถ่ายโอนและดัดแปลงหลักการเดิมไปใช้ในบริบทใหม่ | *"จะนำกลไกความสำเร็จนี้ไปดัดแปลงใช้กับสถานการณ์ใหม่ได้อย่างไร?"* | โซลูชันการปรับใช้จริงหน้างาน (Left-to-Right Transfer) |
-| **8** | [คิดเชิงกลยุทธ์](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/08_strategic_thinking.md) | **ไกล** | กำหนดเป้าหมาย ออกแบบชั้นเชิง และสร้างความได้เปรียบ | *"จะวางหมากอย่างไรเพื่อสร้างความเป็นต่อและบรรลุชัยชนะสูงสุด?"* | แผนที่กลยุทธ์ (Roadmap), จุดคานงัด, ปราการแข่งขัน |
-| **9** | [คิดเชิงบูรณาการ](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/09_integrative_thinking.md) | **กว้าง** | เชื่อมประสานทุกมิติให้กลมกลืนแบบองค์รวม (1+1 > 2) | *"จะขยายและคลุมกรอบเพื่อสลายความขัดแย้งและผสานพลังได้อย่างไร?"* | แผนผังสถาปัตยกรรมระบบองค์รวม (Holistic Synergy) |
-| **10** | [คิดเชิงอนาคต](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/10_futuristic_thinking.md) | **ไกล** | วิเคราะห์แนวโน้ม คาดการณ์ฉากทัศน์ และเตรียมการล่วงหน้า | *"ในอนาคตจะเกิดฉากทัศน์ใด และต้องเตรียมพร้อมอย่างไรตั้งแต่วันนี้?"* | ฉากทัศน์อนาคต (Best / Base / Worst Case Scenarios) |
+| **1** | [คิดเชิงวิเคราะห์](./references/01_analytical_thinking.md) | **ลึก** | จำแนกองค์ประกอบและหาความสัมพันธ์เชิงเหตุผล | *"เรื่องนี้ประกอบด้วยส่วนย่อยอะไร และส่งผลกระทบถึงกันอย่างไร?"* | แผนผังโครงสร้างเหตุและผล (Root Cause Tree) |
+| **2** | [คิดเชิงวิพากษ์](./references/02_critical_thinking.md) | **ลึก** | ตรวจสอบข้อสมมติฐาน ความถูกต้อง และความน่าเชื่อถือ | *"เรื่องนี้จริงแท้แค่ไหน มีหลักฐานอะไรสนับสนุน และมีอคติหรือไม่?"* | ข้อสรุปที่ผ่านการกรองความจริง ปราศจากตรรกะวิบัติ |
+| **3** | [คิดเชิงสังเคราะห์](./references/03_synthesis_thinking.md) | **กว้าง** | หลอมรวมองค์ประกอบย่อยให้เกิดเป็นสิ่งใหม่หรือแนวคิดใหม่ | *"นำแก่นสาระเหล่านี้มาถักทอจัดระเบียบใหม่เป็นอะไรได้บ้าง?"* | โมเดลแนวคิดใหม่ หรือนวัตกรรมที่สมบูรณ์ |
+| **4** | [คิดเชิงเปรียบเทียบ](./references/04_comparative_thinking.md) | **กว้าง** | ค้นหาความเหมือนและความต่างบนเกณฑ์มาตรฐาน | *"สิ่งเหล่านี้มีความเหมือนและความต่างกันอย่างไรตามเกณฑ์นี้?"* | เมทริกซ์เปรียบเทียบ / อุปมาอุปไมยข้ามศาสตร์ |
+| **5** | [คิดเชิงมโนทัศน์](./references/05_conceptual_thinking.md) | **ลึก** | สกัดแก่นแท้นามธรรมให้กลายเป็นความคิดรวบยอด | *"อะไรคือแก่นแท้และสาระสำคัญสูงสุดของปรากฏการณ์นี้?"* | นิยามแก่นหลักการใน 1 ประโยค / โมเดลเชิงสัญลักษณ์ |
+| **6** | [คิดเชิงสร้างสรรค์](./references/06_creative_thinking.md) | **กว้าง** | ผลิตแนวคิดแปลกใหม่ ยืดหยุ่น และสร้างมูลค่าเพิ่มเชิงบวก | *"มีทางเลือกอื่นที่แปลกใหม่และสร้างคุณค่าได้มากกว่านี้ไหม?"* | บัญชีไอเดียริเริ่มนอกกรอบเดิม (Divergent Options) |
+| **7** | [คิดเชิงประยุกต์](./references/07_applicative_thinking.md) | **กว้าง** | ถ่ายโอนและดัดแปลงหลักการเดิมไปใช้ในบริบทใหม่ | *"จะนำกลไกความสำเร็จนี้ไปดัดแปลงใช้กับสถานการณ์ใหม่ได้อย่างไร?"* | โซลูชันการปรับใช้จริงหน้างาน (Left-to-Right Transfer) |
+| **8** | [คิดเชิงกลยุทธ์](./references/08_strategic_thinking.md) | **ไกล** | กำหนดเป้าหมาย ออกแบบชั้นเชิง และสร้างความได้เปรียบ | *"จะวางหมากอย่างไรเพื่อสร้างความเป็นต่อและบรรลุชัยชนะสูงสุด?"* | แผนที่กลยุทธ์ (Roadmap), จุดคานงัด, ปราการแข่งขัน |
+| **9** | [คิดเชิงบูรณาการ](./references/09_integrative_thinking.md) | **กว้าง** | เชื่อมประสานทุกมิติให้กลมกลืนแบบองค์รวม (1+1 > 2) | *"จะขยายและคลุมกรอบเพื่อสลายความขัดแย้งและผสานพลังได้อย่างไร?"* | แผนผังสถาปัตยกรรมระบบองค์รวม (Holistic Synergy) |
+| **10** | [คิดเชิงอนาคต](./references/10_futuristic_thinking.md) | **ไกล** | วิเคราะห์แนวโน้ม คาดการณ์ฉากทัศน์ และเตรียมการล่วงหน้า | *"ในอนาคตจะเกิดฉากทัศน์ใด และต้องเตรียมพร้อมอย่างไรตั้งแต่วันนี้?"* | ฉากทัศน์อนาคต (Best / Base / Worst Case Scenarios) |
 
 ---
 
@@ -77,11 +77,11 @@ graph TD
 
 ### Route 1: การแก้ไขปัญหาที่ซับซ้อน (Complex Problem Solving)
 หากโจทย์คือ: วิกฤตธุรกิจ, ปัญหาองค์กร, ผลลัพธ์ไม่เป็นไปตามเป้า, ปัญหาขัดแย้งเชิงโครงสร้าง
-➡️ **เรียกใช้:** [Playbook A: Complex Problem Solving Protocol](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/playbook_complex_problem_solving.md)
+➡️ **เรียกใช้:** [Playbook A: Complex Problem Solving Protocol](./references/playbook_complex_problem_solving.md)
 
 ### Route 2: การพัฒนาและขับเคลื่อนนวัตกรรม (Transformative Innovation)
 หากโจทย์คือ: สร้างสินค้า/บริการใหม่, ออกแบบโมเดลธุรกิจใหม่, หา Blue Ocean, พลิกโฉมอุตสาหกรรม
-➡️ **เรียกใช้:** [Playbook B: Transformative Innovation Pipeline](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/playbook_transformative_innovation.md)
+➡️ **เรียกใช้:** [Playbook B: Transformative Innovation Pipeline](./references/playbook_transformative_innovation.md)
 
 ### Route 3: การประเมินกลยุทธ์และวิสัยทัศน์ระยะยาว (Strategic Foresight & Moat)
 หากโจทย์คือ: วางแผนกลยุทธ์องค์กร, วิเคราะห์คู่แข่ง, สร้างปราการป้องกันความเสี่ยง (Moat)
@@ -89,7 +89,7 @@ graph TD
 
 ### Route 4: การวิเคราะห์เชิงลึกเฉพาะมิติ (Targeted Thinking Dimension)
 หากผู้ใช้ระบุหรือต้องการเจาะจงมิติใดมิติหนึ่งโดยเฉพาะ (เช่น ตรวจสอบความจริงของข้อมูล หรือ คิดนอกกรอบ)
-➡️ **เปิดอ่านคู่มือมิตินั้นโดยตรง** ในโฟลเดอร์ [references/](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/)
+➡️ **เปิดอ่านคู่มือมิตินั้นโดยตรง** ในโฟลเดอร์ [references/](./references/)
 
 ---
 
@@ -155,17 +155,17 @@ graph TD
 
 ## 7. รายการเอกสารอ้างอิงฉบับสมบูรณ์ (Reference Library)
 
-- [00. ปรัชญาและวิทยาศาสตร์ทางสมอง (Core Philosophy)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/00_core_philosophy.md)
-- [01. การคิดเชิงวิเคราะห์ (Analytical Thinking)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/01_analytical_thinking.md)
-- [02. การคิดเชิงวิพากษ์ (Critical Thinking)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/02_critical_thinking.md)
-- [03. การคิดเชิงสังเคราะห์ (Synthesis Thinking)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/03_synthesis_thinking.md)
-- [04. การคิดเชิงเปรียบเทียบ (Comparative Thinking)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/04_comparative_thinking.md)
-- [05. การคิดเชิงมโนทัศน์ (Conceptual Thinking)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/05_conceptual_thinking.md)
-- [06. การคิดเชิงสร้างสรรค์ (Creative Thinking)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/06_creative_thinking.md)
-- [07. การคิดเชิงประยุกต์ (Applicative Thinking)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/07_applicative_thinking.md)
-- [08. การคิดเชิงกลยุทธ์ (Strategic Thinking)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/08_strategic_thinking.md)
-- [09. การคิดเชิงบูรณาการ (Integrative Thinking)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/09_integrative_thinking.md)
-- [10. การคิดเชิงอนาคต (Futuristic Thinking)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/10_futuristic_thinking.md)
-- [คู่มือ Playbook การแก้ปัญหาซับซ้อน (Complex Problem Solving)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/playbook_complex_problem_solving.md)
-- [คู่มือ Playbook นวัตกรรมเชิงปฏิรูป (Transformative Innovation)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/playbook_transformative_innovation.md)
-- [คำถามตรวจสอบความคิดและเกณฑ์บ่งชี้สมรรถนะ (Rubrics & Checklists)](file:///Users/nattagid/Code%20Project/Skills%2010%20Think/.agents/skills/ten-thinking-dimensions/references/rubrics_and_checklists.md)
+- [00. ปรัชญาและวิทยาศาสตร์ทางสมอง (Core Philosophy)](./references/00_core_philosophy.md)
+- [01. การคิดเชิงวิเคราะห์ (Analytical Thinking)](./references/01_analytical_thinking.md)
+- [02. การคิดเชิงวิพากษ์ (Critical Thinking)](./references/02_critical_thinking.md)
+- [03. การคิดเชิงสังเคราะห์ (Synthesis Thinking)](./references/03_synthesis_thinking.md)
+- [04. การคิดเชิงเปรียบเทียบ (Comparative Thinking)](./references/04_comparative_thinking.md)
+- [05. การคิดเชิงมโนทัศน์ (Conceptual Thinking)](./references/05_conceptual_thinking.md)
+- [06. การคิดเชิงสร้างสรรค์ (Creative Thinking)](./references/06_creative_thinking.md)
+- [07. การคิดเชิงประยุกต์ (Applicative Thinking)](./references/07_applicative_thinking.md)
+- [08. การคิดเชิงกลยุทธ์ (Strategic Thinking)](./references/08_strategic_thinking.md)
+- [09. การคิดเชิงบูรณาการ (Integrative Thinking)](./references/09_integrative_thinking.md)
+- [10. การคิดเชิงอนาคต (Futuristic Thinking)](./references/10_futuristic_thinking.md)
+- [คู่มือ Playbook การแก้ปัญหาซับซ้อน (Complex Problem Solving)](./references/playbook_complex_problem_solving.md)
+- [คู่มือ Playbook นวัตกรรมเชิงปฏิรูป (Transformative Innovation)](./references/playbook_transformative_innovation.md)
+- [คำถามตรวจสอบความคิดและเกณฑ์บ่งชี้สมรรถนะ (Rubrics & Checklists)](./references/rubrics_and_checklists.md)

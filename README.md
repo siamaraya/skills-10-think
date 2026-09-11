@@ -4,11 +4,58 @@
 
 ---
 
-## 📌 วิสัยทัศน์ของระบบ (Vision)
+## 💻 วิธีนำไปติดตั้งใช้งานกับเครื่องอื่นๆ (Cross-Machine Portability)
 
-ในยุคที่ข้อมูลท่วมท้นและความซับซ้อนของปัญหาเพิ่มขึ้นแบบทวีคูณ การคิดแบบ "คิดได้" (Can Think) ตามสัญชาตญาณหรือปฏิกิริยาสะท้อนกลับเฉพาะหน้าไม่เพียงพออีกต่อไป ชุดสกิล **Ten Thinking Dimensions** ถูกพัฒนาขึ้นเพื่อให้ Antigravity Agent มีกรอบการคิดที่ **"คิดเป็น" (Knowing How to Think)** โดยผสานพลัง 10 มิติความคิดลงบนแกนพิกัด 3 มิติ เพื่อใช้ในการ:
-- **การแก้ปัญหาที่ซับซ้อน (Complex Problem Solving):** ปัญหาวิกฤตธุรกิจ ปัญหาองค์กร และนโยบายที่มีผลกระทบหลายชั้น
-- **การขับเคลื่อนนวัตกรรมเชิงปฏิรูป (Transformative Innovation):** การค้นหา Unmet Needs, การสร้างโมเดลธุรกิจใหม่, และการทลายกรอบเดิมของอุตสาหกรรม
+ชุดสกิลนี้ถูกออกแบบให้ **Portable 100%** ไม่มี Path ผูกติดกับเครื่องใดเครื่องหนึ่ง (ใช้ Relative Links ทั้งหมด) คุณสามารถนำไปติดตั้งในคอมพิวเตอร์เครื่องอื่น (Mac, Windows, Linux) ได้อย่างง่ายดายผ่าน 4 รูปแบบ:
+
+### วิธีที่ 1: ติดตั้งผ่าน Script 1-Click (ง่ายและสะดวกที่สุด)
+
+#### บน macOS / Linux:
+เปิด Terminal ในโฟลเดอร์นี้ แล้วพิมพ์คำสั่ง:
+```bash
+bash install.sh
+# หรือใช้ Python
+python3 install.py
+```
+
+#### บน Windows:
+- ดับเบิลคลิกที่ไฟล์ `install.bat` หรือ
+- คลิกขวาที่ `install.ps1` แล้วเลือก *Run with PowerShell* หรือ
+- รันคำสั่งผ่าน Command Prompt / PowerShell:
+```cmd
+python install.py
+```
+
+*(สคริปต์จะคัดลอกชุดสกิลทั้งหมดลงในโฟลเดอร์ Global Config ของ Antigravity คือ `~/.gemini/config/skills/ten-thinking-dimensions/` โดยอัตโนมัติ ทำให้ใช้งานได้กับทุกโปรเจกต์ในเครื่องนั้นทันที)*
+
+---
+
+### วิธีที่ 2: แชร์ผ่านไฟล์ ZIP สำเร็จรูป (`ten-thinking-dimensions.zip`)
+ในโฟลเดอร์นี้มีไฟล์ `ten-thinking-dimensions.zip` ที่บรรจุสกิลทั้งชุดไว้เรียบร้อยแล้ว:
+1. ส่งไฟล์ `ten-thinking-dimensions.zip` ไปยังเครื่องปลายทาง (ผ่าน Email, Flash Drive, Cloud ฯลฯ)
+2. บนเครื่องปลายทาง ให้แตกไฟล์ zip ไปไว้ที่:
+   - **macOS / Linux:** `~/.gemini/config/skills/`
+   - **Windows:** `C:\Users\<ชื่อผู้ใช้>\.gemini\config\skills\`
+3. เมื่อแตกไฟล์แล้ว โครงสร้างจะอยู่ที่ `.../skills/ten-thinking-dimensions/SKILL.md` และพร้อมใช้งานทันที!
+
+---
+
+### วิธีที่ 3: ใช้งานผ่าน GitHub / Git Clone
+หากนำโปรเจกต์นี้ขึ้น GitHub (Public หรือ Private Repository):
+```bash
+# 1. Clone ลงในเครื่องใหม่
+git clone <URL_ของ_REPOSITORY>
+cd "Skills 10 Think"
+
+# 2. รันคำสั่งติดตั้ง
+./install.sh   # หรือ python3 install.py
+```
+
+---
+
+### วิธีที่ 4: คัดลอกเฉพาะโปรเจกต์ที่ต้องการใช้งาน (Workspace Level)
+หากต้องการใช้เฉพาะกับโปรเจกต์ใดโปรเจกต์หนึ่ง โดยไม่ติดตั้งลงใน Global:
+- เพียงแค่คัดลอกโฟลเดอร์ `.agents` จากโฟลเดอร์นี้ ไปวางไว้ที่โฟลเดอร์ Root ของโปรเจกต์เป้าหมาย Antigravity จะตรวจพบสกิลนี้อัตโนมัติเมื่อเปิดโปรเจกต์นั้น
 
 ---
 
@@ -74,47 +121,16 @@
 
 ```text
 Skills 10 Think/
-├── README.md                                 # ภาพรวมระบบ
+├── README.md                                 # คู่มือและการติดตั้งข้ามเครื่อง
+├── install.py                                # Universal Cross-Platform Installer
+├── install.sh                                # 1-Click Installer สำหรับ macOS/Linux
+├── install.bat                               # 1-Click Installer สำหรับ Windows CMD
+├── install.ps1                               # 1-Click Installer สำหรับ Windows PowerShell
+├── ten-thinking-dimensions.zip               # ZIP Bundle พร้อมแชร์และแตกไฟล์ใช้งานทันที
 ├── .agents/skills/ten-thinking-dimensions/
-│   ├── SKILL.md                              # สกิลหลักและตัวควบคุมการทำงาน
-│   ├── references/                           # คลังเอกสารอ้างอิงเชิงลึก
-│   │   ├── 00_core_philosophy.md             # วิทยาศาสตร์สมองและวงจรพฤติกรรมปัญญา
-│   │   ├── 01_analytical_thinking.md         # คิดเชิงวิเคราะห์
-│   │   ├── 02_critical_thinking.md           # คิดเชิงวิพากษ์
-│   │   ├── 03_synthesis_thinking.md          # คิดเชิงสังเคราะห์
-│   │   ├── 04_comparative_thinking.md        # คิดเชิงเปรียบเทียบ
-│   │   ├── 05_conceptual_thinking.md         # คิดเชิงมโนทัศน์
-│   │   ├── 06_creative_thinking.md           # คิดเชิงสร้างสรรค์
-│   │   ├── 07_applicative_thinking.md        # คิดเชิงประยุกต์
-│   │   ├── 08_strategic_thinking.md          # คิดเชิงกลยุทธ์
-│   │   ├── 09_integrative_thinking.md        # คิดเชิงบูรณาการ
-│   │   ├── 10_futuristic_thinking.md         # คิดเชิงอนาคต
-│   │   ├── playbook_complex_problem_solving.md # คู่มือโปรโตคอลแก้ปัญหา 4 ขั้นตอน
-│   │   ├── playbook_transformative_innovation.md # คู่มือท่อส่งนวัตกรรม 6 ระยะ
-│   │   └── rubrics_and_checklists.md         # เช็กลิสต์คำถามและเทมเพลตรายงาน
+│   ├── SKILL.md                              # สกิลหลักและตัวควบคุมการทำงาน (Relative Links 100%)
+│   ├── references/                           # คลังคู่มือเฉพาะทาง 14 ฉบับ
+│   ├── examples/                             # ตัวอย่างการประยุกต์ใช้จริง
 │   └── scripts/
 │       └── think10_cli.py                    # เครื่องมือ CLI สำหรับทดสอบและสร้างรายงาน
-```
-
----
-
-## 🛠 วิธีการใช้งาน (Usage Guide)
-
-### 1. เรียกใช้งานผ่าน AI Agent ในบทสนทนา:
-สามารถพิมพ์สั่ง Antigravity ในโปรเจกต์ใดๆ ก็ได้ เช่น:
-- *"ช่วยวิเคราะห์ปัญหาต้นทุนพุ่งและลูกค้ายกเลิกสัญญา ด้วยกระบวนการแก้ปัญหาซับซ้อนของ 10 คิด"*
-- *"ช่วยคิดนวัตกรรมโมเดลธุรกิจร้านอาหารเพื่อสุขภาพด้วย 10-D Innovation Pipeline"*
-- *"ช่วยตรวจสอบความสมเหตุสมผลของแผนงานนี้ด้วยการคิดเชิงวิพากษ์และวิเคราะห์เชิงลึก"*
-
-### 2. เรียกใช้งานผ่าน CLI (`think10_cli.py`):
-```bash
-# แสดงรายชื่อ 10 มิติการคิด
-python3 .agents/skills/ten-thinking-dimensions/scripts/think10_cli.py list
-
-# ดูคำถามตรวจสอบความคิดของมิติที่ต้องการ
-python3 .agents/skills/ten-thinking-dimensions/scripts/think10_cli.py check analytical
-python3 .agents/skills/ten-thinking-dimensions/scripts/think10_cli.py check กลยุทธ์
-
-# สร้างไฟล์โครงร่างบันทึกยุทธศาสตร์ (Executive Dossier) สำหรับโจทย์ใหม่
-python3 .agents/skills/ten-thinking-dimensions/scripts/think10_cli.py scaffold --topic "การแก้ปัญหายอดขายตกต่ำ" --out report.md
 ```
