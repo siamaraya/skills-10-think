@@ -41,14 +41,15 @@ python install.py
 ---
 
 ### วิธีที่ 3: ใช้งานผ่าน GitHub / Git Clone
-หากนำโปรเจกต์นี้ขึ้น GitHub (Public หรือ Private Repository):
+สามารถ Clone จาก Public GitHub Repository ได้ทันที:
 ```bash
 # 1. Clone ลงในเครื่องใหม่
-git clone <URL_ของ_REPOSITORY>
-cd "Skills 10 Think"
+git clone https://github.com/siamaraya/skills-10-think.git
+cd skills-10-think
 
-# 2. รันคำสั่งติดตั้ง
-./install.sh   # หรือ python3 install.py
+# 2. รันคำสั่งติดตั้ง (เลือกตาม OS)
+./install.sh   # สำหรับ macOS / Linux
+# หรือรัน python3 install.py
 ```
 
 ---
