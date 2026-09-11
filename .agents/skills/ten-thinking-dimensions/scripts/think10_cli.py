@@ -161,6 +161,143 @@ def cmd_scaffold(args):
     print(f"สร้างเทมเพลต 10-Think Executive Dossier เรียบร้อยแล้ว:")
     print(f"  -> {Path(out_file).resolve()}")
 
+def prompt_user(question, default=""):
+    try:
+        user_val = input(f"\n{question}\n[ตอบ / กด Enter เพื่อข้าม]: ").strip()
+        return user_val if user_val else default
+    except (EOFError, KeyboardInterrupt):
+        return default
+
+def cmd_wizard(args):
+    print("\n========================================================")
+    print("  🧙 Think-10 Interactive Strategy Wizard")
+    print("  เครื่องมือนำทางการคิดอย่างเป็นระบบ (กว้าง - ลึก - ไกล)")
+    print("========================================================\n")
+
+    mode = args.mode
+    if not mode:
+        print("กรุณาเลือกโหมดการทำงาน:")
+        print("  [1] แก้ไขปัญหาที่ซับซ้อน (Complex Problem Solving Protocol - 4 ขั้น)")
+        print("  [2] ท่อส่งนวัตกรรม 10 มิติ (The 10-D Innovation Pipeline - 6 ระยะ)")
+        print("  [3] ประเมินรอบทิศครบ 10 มิติ (Full 10-D Cognitive Audit)")
+        choice = prompt_user("เลือกโหมด [1/2/3]: ", default="1")
+        mode = choice
+
+    topic = args.topic
+    if not topic:
+        topic = prompt_user("ระบุชื่อหัวข้อหรือโจทย์ยุทธศาสตร์ของคุณ:", default="โจทย์ยุทธศาสตร์")
+
+    out_file = args.out or f"dossier_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md"
+    date_str = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    answers = {}
+
+    if mode == "1":
+        print(f"\n--- เริ่มต้นโปรโตคอลแก้ปัญหาซับซ้อน 4 ขั้นตอน: {topic} ---")
+        print("\n[ขั้นที่ 1: ชำแหละและถอดรหัสปัญหา (Deconstruction & Verification)]")
+        answers["critical"] = prompt_user("1.1 คิดเชิงวิพากษ์: ข้อเท็จจริงที่พิสูจน์แล้วคืออะไร และมีสมมติฐานใดที่ต้องท้าทาย?")
+        answers["analytical"] = prompt_user("1.2 คิดเชิงวิเคราะห์: ผ่าโครงสร้างระบบ 5 Whys อะไรคือสาเหตุรากเหง้า (Root Cause)?")
+        answers["conceptual"] = prompt_user("1.3 คิดเชิงมโนทัศน์: สรุปนิยามโจทย์แท้จริงใน 1 ประโยคคมชัด?")
+
+        print("\n[ขั้นที่ 2: ระดมทางเลือกและออกแบบโซลูชัน (Solution Generation)]")
+        answers["comparative"] = prompt_user("2.1 คิดเชิงเปรียบเทียบ: มีกรณีศึกษาใดจากวงการอื่นที่นำมาเทียบเคียงได้ (Benchmarking)?")
+        answers["creative"] = prompt_user("2.2 คิดเชิงสร้างสรรค์: หากคิดกลับด้าน (Inversion) หรือไร้ข้อจำกัด มีไอเดียนอกกรอบอะไรบ้าง?")
+        answers["applicative"] = prompt_user("2.3 คิดเชิงประยุกต์: ถอดรหัสความสำเร็จจากศาสตร์อื่นมาดัดแปลงใช้หน้างานนี้อย่างไร (Left-to-Right)?")
+        answers["synthesis"] = prompt_user("2.4 คิดเชิงสังเคราะห์: หลอมรวมชิ้นส่วนทางเลือกเป็น Solution Package ใหม่อย่างไร?")
+
+        print("\n[ขั้นที่ 3: วางตำแหน่งกลยุทธ์และประเมินอนาคต (Strategic Foresight)]")
+        answers["futuristic"] = prompt_user("3.1 คิดเชิงอนาคต: ผลกระทบระลอก 2-3 และฉากทัศน์ Best/Base/Worst เป็นอย่างไร?")
+        answers["strategic"] = prompt_user("3.2 คิดเชิงกลยุทธ์: จุดคานงัดสูงสุด (Leverage Point) และคูเมืองป้องกัน (Moat) คืออะไร?")
+
+        print("\n[ขั้นที่ 4: เชื่อมประสานระบบและการลงมือทำ (Systemic Implementation)]")
+        answers["integrative"] = prompt_user("4.1 คิดเชิงบูรณาการ: สลายความขัดแย้งของ Stakeholders และประสานระบบทุกฝ่ายอย่างไร (1+1 > 2)?")
+        answers["actions"] = prompt_user("4.2 ก้าวแรกและแผนปฏิบัติการ 3 ข้อทันที:")
+
+        content = f"""# บันทึกยุทธศาสตร์แก้ปัญหาซับซ้อน (Complex Problem Solving Dossier)
+**หัวข้อ:** {topic}  
+**วันที่:** {date_str}  
+**เครื่องมือ:** The 10 Thinking Dimensions Cognitive OS  
+
+---
+
+## 1. การถอดรหัสและสกัดแก่นแท้โจทย์
+- **นิยามโจทย์แท้จริงใน 1 ประโยค (เชิงมโนทัศน์):** {answers.get('conceptual') or '[ไม่ได้ระบุ]'}
+- **การตรวจสอบความจริงและสลายอคติ (เชิงวิพากษ์):** {answers.get('critical') or '[ไม่ได้ระบุ]'}
+- **การผ่าโครงสร้างและรากเหง้า (เชิงวิเคราะห์):** {answers.get('analytical') or '[ไม่ได้ระบุ]'}
+
+---
+
+## 2. ทางออกและนวัตกรรมโซลูชัน
+- **กรณีศึกษาเทียบเคียงข้ามวงการ (เชิงเปรียบเทียบ):** {answers.get('comparative') or '[ไม่ได้ระบุ]'}
+- **ทางเลือกนอกกรอบและการคิดกลับด้าน (เชิงสร้างสรรค์):** {answers.get('creative') or '[ไม่ได้ระบุ]'}
+- **การถ่ายโอนและดัดแปลงข้ามศาสตร์ (เชิงประยุกต์):** {answers.get('applicative') or '[ไม่ได้ระบุ]'}
+- **สถาปัตยกรรมแพ็กเกจโซลูชัน (เชิงสังเคราะห์):** {answers.get('synthesis') or '[ไม่ได้ระบุ]'}
+
+---
+
+## 3. ยุทธศาสตร์และฉากทัศน์อนาคต
+- **การประเมินฉากทัศน์และผลกระทบระยะยาว (เชิงอนาคต):** {answers.get('futuristic') or '[ไม่ได้ระบุ]'}
+- **จุดคานงัดและปราการความได้เปรียบ (เชิงกลยุทธ์):** {answers.get('strategic') or '[ไม่ได้ระบุ]'}
+
+---
+
+## 4. แผนภูมิบูรณาการและการขับเคลื่อนจริง
+- **การประสานระบบและสลายความขัดแย้ง (เชิงบูรณาการ):** {answers.get('integrative') or '[ไม่ได้ระบุ]'}
+- **หมุดหมายปฏิบัติการทันที:** 
+{answers.get('actions') or '[ไม่ได้ระบุ]'}
+"""
+    elif mode == "2":
+        print(f"\n--- เริ่มต้นท่อส่งนวัตกรรม 10 มิติ (6 Stages): {topic} ---")
+        answers["stage1"] = prompt_user("ระยะที่ 1: ค้นหาช่องว่างที่ซ่อนอยู่ (Value Chain Pain Points & ท้าทายความเชื่อเดิม):")
+        answers["stage2"] = prompt_user("ระยะที่ 2: ตกผลึกแก่นคุณค่าใหม่ (Unmet Needs สู่ Value Proposition ใน 1 ประโยค):")
+        answers["stage3"] = prompt_user("ระยะที่ 3: กระโดดข้ามพรมแดนเดิม (เทียบเคียงข้ามอุตสาหกรรม & พลิกกลับด้าน Inversion):")
+        answers["stage4"] = prompt_user("ระยะที่ 4: สร้างสถาปัตยกรรมต้นแบบ (ถ่ายโอนเทคโนโลยี & หลอมรวมโมเดลธุรกิจ):")
+        answers["stage5"] = prompt_user("ระยะที่ 5: ฉายภาพอนาคตและสร้างปราการ (ทดสอบ Megatrends & สร้างคูเมือง Moat):")
+        answers["stage6"] = prompt_user("ระยะที่ 6: หลอมรวมระบบนิเวศนวัตกรรม (ผนึกพันธมิตรและผู้ใช้งานสู่ Synergy):")
+
+        content = f"""# บันทึกท่อส่งนวัตกรรม 10 มิติ (Transformative Innovation Dossier)
+**หัวข้อนวัตกรรม:** {topic}  
+**วันที่:** {date_str}  
+**เครื่องมือ:** The 10-D Innovation Pipeline  
+
+---
+
+## ระยะที่ 1: ค้นหาช่องว่างที่ซ่อนอยู่ (Uncovering Latent Gaps)
+{answers.get('stage1') or '[ไม่ได้ระบุ]'}
+
+## ระยะที่ 2: ตกผลึกแก่นคุณค่าใหม่ (Formulating Core Conceptual Value)
+{answers.get('stage2') or '[ไม่ได้ระบุ]'}
+
+## ระยะที่ 3: กระโดดข้ามพรมแดนเดิม (Cross-boundary Ideation)
+{answers.get('stage3') or '[ไม่ได้ระบุ]'}
+
+## ระยะที่ 4: สร้างสถาปัตยกรรมต้นแบบ (Prototype Architecture)
+{answers.get('stage4') or '[ไม่ได้ระบุ]'}
+
+## ระยะที่ 5: ฉายภาพอนาคตและสร้างปราการทางธุรกิจ (Future Alignment & Strategic Moat)
+{answers.get('stage5') or '[ไม่ได้ระบุ]'}
+
+## ระยะที่ 6: หลอมรวมระบบนิเวศนวัตกรรม (Ecosystem Integration)
+{answers.get('stage6') or '[ไม่ได้ระบุ]'}
+"""
+    else:
+        # Full 10-D Mode
+        print(f"\n--- เริ่มต้นประเมินครบ 10 มิติ: {topic} ---")
+        for k, (name, axis, desc, questions) in DIMENSIONS.items():
+            print(f"\n[{k}] {name} (แกน: {axis})")
+            answers[k] = prompt_user(f"{desc}\n{questions[0]}")
+        content = f"# บันทึกการประเมินครบ 10 มิติ (Full 10-D Cognitive Audit)\n**หัวข้อ:** {topic}\n**วันที่:** {date_str}\n\n---\n\n"
+        for k, (name, axis, desc, questions) in DIMENSIONS.items():
+            content += f"### [{k}] {name} ({axis})\n**คำตอบ/การประเมิน:** {answers.get(k) or '[ไม่ได้ระบุ]'}\n\n"
+
+    with open(out_file, "w", encoding="utf-8") as f:
+        f.write(content)
+
+    print(f"\n========================================================")
+    print(f"🎉 สร้างบันทึกยุทธศาสตร์เสร็จสมบูรณ์!")
+    print(f"  -> บันทึกที่ไฟล์: {Path(out_file).resolve()}")
+    print(f"========================================================\n")
+
 def main():
     parser = argparse.ArgumentParser(description="10 Thinking Dimensions Cognitive OS CLI")
     subparsers = parser.add_subparsers(dest="command")
@@ -177,6 +314,12 @@ def main():
     p_scaffold.add_argument("--topic", "-t", help="ชื่อหัวข้อหรือโจทย์ยุทธศาสตร์")
     p_scaffold.add_argument("--out", "-o", help="ชื่อไฟล์ผลลัพธ์ (.md)")
 
+    # wizard
+    p_wizard = subparsers.add_parser("wizard", help="รัน Interactive Wizard เพื่อตอบคำถามและสร้างรายงานทีละขั้นตอน")
+    p_wizard.add_argument("--mode", "-m", choices=["1", "2", "3"], help="เลือกโหมด (1: CPS, 2: Innovation, 3: Full 10-D)")
+    p_wizard.add_argument("--topic", "-t", help="ชื่อหัวข้อหรือโจทย์ยุทธศาสตร์")
+    p_wizard.add_argument("--out", "-o", help="ชื่อไฟล์ผลลัพธ์ (.md)")
+
     args = parser.parse_args()
     if args.command == "list":
         cmd_list(args)
@@ -184,6 +327,8 @@ def main():
         cmd_check(args)
     elif args.command == "scaffold":
         cmd_scaffold(args)
+    elif args.command == "wizard":
+        cmd_wizard(args)
     else:
         parser.print_help()
 

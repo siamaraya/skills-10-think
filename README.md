@@ -130,7 +130,41 @@ Skills 10 Think/
 ├── .agents/skills/ten-thinking-dimensions/
 │   ├── SKILL.md                              # สกิลหลักและตัวควบคุมการทำงาน (Relative Links 100%)
 │   ├── references/                           # คลังคู่มือเฉพาะทาง 14 ฉบับ
-│   ├── examples/                             # ตัวอย่างการประยุกต์ใช้จริง
+│   ├── examples/                             # คลังกรณีศึกษาจริง 3 ภาคอุตสาหกรรม
+│   │   ├── case_study_business_turnaround.md # ธุรกิจกาแฟและสุขภาวะชุมชน
+│   │   ├── case_study_ai_saas_platform.md    # นวัตกรรม Enterprise AI SaaS
+│   │   └── case_study_manufacturing_cost_crisis.md # กู้วิกฤตโรงงานและการผลิต
 │   └── scripts/
-│       └── think10_cli.py                    # เครื่องมือ CLI สำหรับทดสอบและสร้างรายงาน
+│       └── think10_cli.py                    # เครื่องมือ CLI + Interactive Strategy Wizard
 ```
+
+---
+
+## 🛠 วิธีการใช้งาน (Usage Guide)
+
+### 1. เรียกใช้งานผ่าน AI Agent ในบทสนทนา:
+สามารถพิมพ์สั่ง Antigravity ในโปรเจกต์ใดๆ ก็ได้ เช่น:
+- *"ช่วยวิเคราะห์ปัญหาต้นทุนพุ่งและลูกค้ายกเลิกสัญญา ด้วยกระบวนการแก้ปัญหาซับซ้อนของ 10 คิด"*
+- *"ช่วยคิดนวัตกรรมโมเดลธุรกิจ Enterprise AI SaaS ด้วย 10-D Innovation Pipeline"*
+- *"ช่วยตรวจสอบความสมเหตุสมผลของแผนงานนี้ด้วยการคิดเชิงวิพากษ์และวิเคราะห์เชิงลึก"*
+
+### 2. รันโหมดผู้ช่วยทีละขั้นตอน (Interactive Strategy Wizard):
+ตอบคำถามนำทางทีละขั้นตอน แล้วระบบจะคอมไพล์สรุปออกมาเป็นไฟล์ Markdown Executive Dossier ให้อัตโนมัติ:
+```bash
+python3 .agents/skills/ten-thinking-dimensions/scripts/think10_cli.py wizard
+```
+*(รองรับ 3 โหมด: `1` แก้ปัญหาซับซ้อน [CPS], `2` ท่อส่งนวัตกรรม [Innovation], `3` ตรวจสอบรอบทิศ [Full 10-D])*
+
+### 3. คำสั่ง CLI อื่นๆ:
+```bash
+# แสดงรายชื่อ 10 มิติการคิด
+python3 .agents/skills/ten-thinking-dimensions/scripts/think10_cli.py list
+
+# ดูคำถามตรวจสอบความคิดของมิติที่ต้องการ
+python3 .agents/skills/ten-thinking-dimensions/scripts/think10_cli.py check analytical
+python3 .agents/skills/ten-thinking-dimensions/scripts/think10_cli.py check กลยุทธ์
+
+# สร้างไฟล์โครงร่างบันทึกยุทธศาสตร์ (Executive Dossier) สำหรับโจทย์ใหม่
+python3 .agents/skills/ten-thinking-dimensions/scripts/think10_cli.py scaffold --topic "การแก้ปัญหายอดขายตกต่ำ" --out report.md
+```
+
