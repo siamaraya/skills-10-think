@@ -298,6 +298,123 @@ def cmd_wizard(args):
     print(f"  -> บันทึกที่ไฟล์: {Path(out_file).resolve()}")
     print(f"========================================================\n")
 
+def cmd_scan(args):
+    target_path = args.file
+    raw_text = args.text
+
+    if target_path:
+        p = Path(target_path)
+        if not p.exists():
+            print(f"Error: ไม่พบไฟล์ {target_path}")
+            return
+        text = p.read_text(encoding="utf-8")
+        source_name = p.name
+    elif raw_text:
+        text = raw_text
+        source_name = "ข้อความที่ป้อน"
+    else:
+        print("กรุณาระบุไฟล์ผ่าน --file หรือข้อความผ่าน --text")
+        return
+
+    text_lower = text.lower()
+
+    # Keyword patterns for cognitive scanning
+    DIMENSION_KEYWORDS = {
+        "1": (["root cause", "สาเหตุ", "5 why", "mece", "แยกส่วน", "วิเคราะห์", "ต้นตอ", "ปัจจัย", "สายใย", "causal", "breakdown"], "วิเคราะห์ (Analytical)", "ลึก"),
+        "2": (["fact", "ข้อเท็จจริง", "สมมติฐาน", "assumption", "อคติ", "bias", "ตรรกะ", "fallacy", "พิสูจน์", "หลักฐาน", "evidence"], "วิพากษ์ (Critical)", "ลึก"),
+        "3": (["สังเคราะห์", "synthesis", "หลอมรวม", "ถักทอ", "โมเดลใหม่", "framework", "แพ็กเกจ", "emergent", "thesis", " antithesis"], "สังเคราะห์ (Synthesis)", "กว้าง"),
+        "4": (["เปรียบเทียบ", "compare", "benchmark", "เหมือน", "ต่าง", "เกณฑ์", "criteria", "อุปมา", "metaphor", "เทียบเคียง"], "เปรียบเทียบ (Comparative)", "กว้าง"),
+        "5": (["มโนทัศน์", "concept", "แก่นแท้", "ใน 1 ประโยค", "สารัตถะ", "big picture", "ภาพรวม", "ความคิดรวบยอด", "essence"], "มโนทัศน์ (Conceptual)", "ลึก"),
+        "6": (["สร้างสรรค์", "creative", "นอกกรอบ", "กลับด้าน", "inversion", "ทางเลือกใหม่", "divergent", "originality", "บ้าบิ่น"], "สร้างสรรค์ (Creative)", "กว้าง"),
+        "7": (["ประยุกต์", "applicative", "left to right", "ถ่ายโอน", "ดัดแปลง", "ย่อส่วน", "ปรับใช้", "ต้นทาง", "ปลายทาง", "adapt"], "ประยุกต์ (Applicative)", "กว้าง"),
+        "8": (["กลยุทธ์", "strategic", "คานงัด", "leverage", "คูเมือง", "moat", "ความเป็นต่อ", "ได้เปรียบ", "trade-off", "หมาก"], "กลยุทธ์ (Strategic)", "ไกล"),
+        "9": (["บูรณาการ", "integrative", "องค์รวม", "holistic", "ขยายกรอบ", "คลุมกรอบ", "1+1 > 2", "synergy", "สลายไซโล", "พันธมิตร"], "บูรณาการ (Integrative)", "กว้าง"),
+        "10": (["อนาคต", "futuristic", "megatrend", "สัญญาณเตือน", "ฉากทัศน์", "scenario", "best case", "worst case", "ระยะยาว", "foresight"], "อนาคต (Futuristic)", "ไกล")
+    }
+
+    scores = {}
+    word_count = len(text.split())
+
+    for k, (keywords, name, axis) in DIMENSION_KEYWORDS.items():
+        hits = sum(text_lower.count(kw) for kw in keywords)
+        # Calculate dynamic score based on density and presence
+        if hits == 0:
+            score = 1.0
+        elif hits == 1:
+            score = 3.5
+        elif hits == 2:
+            score = 5.5
+        elif hits == 3:
+            score = 7.5
+        elif hits >= 4:
+            score = min(10.0, 8.5 + (hits - 4) * 0.5)
+        scores[k] = round(score, 1)
+
+    deep_score = round((scores["1"] + scores["2"] + scores["5"]) / 3, 1)
+    broad_score = round((scores["3"] + scores["4"] + scores["6"] + scores["7"] + scores["9"]) / 5, 1)
+    far_score = round((scores["8"] + scores["10"]) / 2, 1)
+    overall_balance = round((deep_score + broad_score + far_score) / 3, 1)
+
+    print("\n========================================================")
+    print(f"  🔍 Cognitive Blindspot Scanner: {source_name}")
+    print(f"  ความยาวเนื้อหา: {word_count} คำ | ดัชนีความสมบูรณ์รอบทิศ: {overall_balance}/10")
+    print("========================================================\n")
+
+    def print_bar(label, val):
+        bars = int(val)
+        bar_str = "█" * bars + "░" * (10 - bars)
+        return f"{label.ljust(22)}: {str(val).rjust(4)}/10 [{bar_str}]"
+
+    print("📊 คะแนน 3 แกนพิกัดหลัก (Core 3D Coordinates):")
+    print("  " + print_bar("แกนความลึก (Deep)", deep_score) + (" ✅ ยอดเยี่ยม" if deep_score >= 7 else " ⚠️ ควรเจาะลึกเพิ่ม"))
+    print("  " + print_bar("แกนความกว้าง (Broad)", broad_score) + (" ✅ ยอดเยี่ยม" if broad_score >= 7 else " ⚠️ ควรขยายมุมมอง"))
+    print("  " + print_bar("แกนความไกล (Far)", far_score) + (" ✅ ยอดเยี่ยม" if far_score >= 7 else " ⚠️ วิกฤต จุดบอดระยะยาว"))
+    print()
+
+    print("📋 คะแนนเจาะลึกรายมิติความคิดทั้ง 10 ด้าน:")
+    for k, (keywords, name, axis) in DIMENSION_KEYWORDS.items():
+        print(f"  [{k.rjust(2)}] " + print_bar(f"{name} ({axis})", scores[k]))
+    print()
+
+    # Blindspot identification
+    sorted_dims = sorted(scores.items(), key=lambda x: x[1])
+    lowest_k, lowest_score = sorted_dims[0]
+    second_lowest_k, second_lowest_score = sorted_dims[1]
+
+    print("========================================================")
+    print("⚠️ การวิเคราะห์จุดบอดทางความคิด (Cognitive Blindspot Diagnostic):")
+    print("========================================================")
+
+    if lowest_score <= 4.0:
+        low_name = DIMENSION_KEYWORDS[lowest_k][1]
+        print(f"🚨 จุดบอดวิกฤตอันดับ 1: [{lowest_k}] {low_name} (คะแนน: {lowest_score}/10)")
+        if lowest_k == "1":
+            print("   -> แผนงานนี้ขาดการวิเคราะห์ Root Cause เชิงระบบ อาจกำลังเสียเวลาแก้ปัญหาที่เพียงแค่อาการภายนอก")
+        elif lowest_k == "2":
+            print("   -> แผนงานนี้ขาดการตรวจสอบข้อเท็จจริงและสมมติฐาน เสี่ยงต่อการตัดสินใจบนอคติหรือตรรกะวิบัติ")
+        elif lowest_k == "5":
+            print("   -> แผนงานนี้ขาดแก่นแท้ใน 1 ประโยค (Essence) ข้อความยาวเกินไปจนสูญเสียจุดโฟกัส")
+        elif lowest_k == "6":
+            print("   -> แผนงานนี้ติดหล่มกรอบเดิม ขาดความคิดสร้างสรรค์แบบก้าวกระโดดหรือการคิดกลับด้าน (Inversion)")
+        elif lowest_k == "7":
+            print("   -> แผนงานนี้ขาดการประยุกต์และดัดแปลงโมเดลสำเร็จข้ามศาสตร์ อาจกำลังประดิษฐ์ล้อซ้ำใหม่")
+        elif lowest_k == "8":
+            print("   -> แผนงานนี้ขาด 'จุดคานงัด' และ 'คูเมืองความได้เปรียบ' (Moat) คู่แข่งสามารถลอกเลียนแบบได้ง่าย")
+        elif lowest_k == "9":
+            print("   -> แผนงานนี้เสี่ยงต่อการทำงานแบบแยกส่วน (Silo) ขาดการประสานประโยชน์ของ Stakeholders ทุกฝ่าย")
+        elif lowest_k == "10":
+            print("   -> แผนงานนี้ตาบอดต่ออนาคต ขาดการวางฉากทัศน์ Best/Worst Case และไม่เตรียมรับมือ Megatrends")
+
+    if second_lowest_score <= 4.5:
+        second_name = DIMENSION_KEYWORDS[second_lowest_k][1]
+        print(f"⚠️ จุดที่ควรเสริมเพิ่ม: [{second_lowest_k}] {second_name} (คะแนน: {second_lowest_score}/10)")
+
+    if lowest_score > 4.0:
+        print("🎉 ยินดีด้วย! แผนงานของคุณมีการกระจายมิติความคิดได้อย่างสมดุลในเกณฑ์ดี ไร้จุดบอดวิกฤต")
+
+    print("\n💡 คำแนะนำยกระดับ:")
+    print(f"  รันคำสั่งตรวจสอบคำถามเฉพาะมิตินี้: python3 think10_cli.py check {lowest_k}\n")
+
 def main():
     parser = argparse.ArgumentParser(description="10 Thinking Dimensions Cognitive OS CLI")
     subparsers = parser.add_subparsers(dest="command")
@@ -320,6 +437,11 @@ def main():
     p_wizard.add_argument("--topic", "-t", help="ชื่อหัวข้อหรือโจทย์ยุทธศาสตร์")
     p_wizard.add_argument("--out", "-o", help="ชื่อไฟล์ผลลัพธ์ (.md)")
 
+    # scan
+    p_scan = subparsers.add_parser("scan", help="สแกนเอกสารหรือข้อความเพื่อประเมินคะแนน 10 มิติและตรวจหาจุดบอด")
+    p_scan.add_argument("--file", "-f", help="พาธของไฟล์ Markdown/Text ที่ต้องการสแกน")
+    p_scan.add_argument("--text", "-t", help="ข้อความสั้นที่ต้องการสแกนโดยตรง")
+
     args = parser.parse_args()
     if args.command == "list":
         cmd_list(args)
@@ -329,6 +451,8 @@ def main():
         cmd_scaffold(args)
     elif args.command == "wizard":
         cmd_wizard(args)
+    elif args.command == "scan":
+        cmd_scan(args)
     else:
         parser.print_help()
 

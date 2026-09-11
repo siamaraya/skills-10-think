@@ -91,7 +91,16 @@ graph TD
 หากผู้ใช้ระบุหรือต้องการเจาะจงมิติใดมิติหนึ่งโดยเฉพาะ (เช่น ตรวจสอบความจริงของข้อมูล หรือ คิดนอกกรอบ)
 ➡️ **เปิดอ่านคู่มือมิตินั้นโดยตรง** ในโฟลเดอร์ [references/](./references/)
 
+### Route 5: สภาความคิด 3 ฝ่ายและการดีเบตจำลอง (Multi-Agent Council & Red Team)
+หากต้องการทดสอบความแข็งแกร่งของแผนงานอย่างถึงแก่น ผ่านการปะทะทางปัญญาของ The Inquisitor, The Visionary, และ The Grandmaster
+➡️ **เรียกใช้:** [Playbook C: Multi-Agent Cognitive Council & Red Team Debate](./references/playbook_cognitive_council_debate.md)
+
+### Route 6: การสแกนตรวจจับจุดบอดทางความคิด (Cognitive Blindspot Scanning & Radar)
+หากต้องการประเมินความสมดุลของแผนงานบนแกน กว้าง-ลึก-ไกล และตรวจหาจุดบอดสำคัญ
+➡️ **เรียกใช้:** [คู่มือและเกณฑ์สแกนจุดบอดทางความคิด](./references/cognitive_blindspot_scanner.md) หรือรันคำสั่ง CLI `think10_cli.py scan`
+
 ---
+
 
 ## 4. Playbook A: โปรโตคอลแก้ปัญหาซับซ้อน 4 ขั้นตอน (Complex Problem Solving)
 
@@ -168,4 +177,8 @@ graph TD
 - [10. การคิดเชิงอนาคต (Futuristic Thinking)](./references/10_futuristic_thinking.md)
 - [คู่มือ Playbook การแก้ปัญหาซับซ้อน (Complex Problem Solving)](./references/playbook_complex_problem_solving.md)
 - [คู่มือ Playbook นวัตกรรมเชิงปฏิรูป (Transformative Innovation)](./references/playbook_transformative_innovation.md)
+- [คู่มือ Playbook สภาความคิด 3 ฝ่าย (Multi-Agent Council & Red Team)](./references/playbook_cognitive_council_debate.md)
+- [เครื่องมือตรวจจับจุดบอดทางความคิด (Cognitive Blindspot Scanner & Radar)](./references/cognitive_blindspot_scanner.md)
+- [เครื่องมือตรวจสอบหลักฐานสด (Live Evidence & Market Grounding)](./references/live_evidence_grounding.md)
 - [คำถามตรวจสอบความคิดและเกณฑ์บ่งชี้สมรรถนะ (Rubrics & Checklists)](./references/rubrics_and_checklists.md)
+
