@@ -73,29 +73,42 @@ graph TD
 
 ## 3. ระบบคัดแยกและเส้นทางการนำไปใช้ (Autonomous Dispatch Engine)
 
-เมื่อผู้ใช้ส่งคำขอหรือโจทย์เข้ามา ให้ตรวจสอบเจตนาเพื่อเลือกใช้กระบวนการที่เหมาะสม:
+เมื่อผู้ใช้ส่งคำขอหรือโจทย์เข้ามา ให้ตรวจสอบเจตนาเพื่อเลือกใช้กระบวนการที่เหมาะสม (หรือเมื่อผู้ใช้พิมพ์คำสั่งทางลัด Slash Command):
 
-### Route 1: การแก้ไขปัญหาที่ซับซ้อน (Complex Problem Solving)
+### ⚡ ตารางคำสั่งทางลัด Slash Commands:
+| คำสั่ง (Slash) | เส้นทางปฏิบัติการ (Route) | เป้าหมายการใช้งาน |
+|---|---|---|
+| `/cps [ปัญหา]` | **Route 1: Complex Problem Solving** | แก้ปัญหาวิกฤตธุรกิจและระบบซับซ้อน 4 ขั้นตอน |
+| `/innovate [โจทย์]` | **Route 2: Transformative Innovation** | พัฒนานวัตกรรม/โมเดลธุรกิจใหม่ผ่านท่อส่ง 6 ระยะ |
+| `/strategy [โจทย์]` | **Route 3: Strategic Foresight & Moat** | วางกลยุทธ์ระยะยาวและสร้างคูเมือง (Moat) ป้องกัน |
+| `/think10 [หัวข้อ]` | **Route 4: 10-D Master Assessment** | วิเคราะห์ประเด็นรอบด้านครบ 10 มิติ (กว้าง-ลึก-ไกล) |
+| `/council [แผนงาน]` | **Route 5: Cognitive Council Debate** | สภาไตรปัญญา 3 ฝ่าย Red Teaming ถกเถียงแผนงาน |
+| `/blindspot [แผน/ไอเดีย]` | **Route 6: Cognitive Blindspot Radar** | สแกนหาจุดบอด 5 โซนอันตรายและเรดาร์ความสมดุล |
+| `/ground [ข้ออ้าง/สถิติ]` | **Special: Live Evidence Grounding** | ตรวจสอบข้อเท็จจริงและจัดระดับความน่าเชื่อถือ |
+
+---
+
+### Route 1: การแก้ไขปัญหาที่ซับซ้อน (Complex Problem Solving) — `/cps`
 หากโจทย์คือ: วิกฤตธุรกิจ, ปัญหาองค์กร, ผลลัพธ์ไม่เป็นไปตามเป้า, ปัญหาขัดแย้งเชิงโครงสร้าง
 ➡️ **เรียกใช้:** [Playbook A: Complex Problem Solving Protocol](./references/playbook_complex_problem_solving.md)
 
-### Route 2: การพัฒนาและขับเคลื่อนนวัตกรรม (Transformative Innovation)
+### Route 2: การพัฒนาและขับเคลื่อนนวัตกรรม (Transformative Innovation) — `/innovate`
 หากโจทย์คือ: สร้างสินค้า/บริการใหม่, ออกแบบโมเดลธุรกิจใหม่, หา Blue Ocean, พลิกโฉมอุตสาหกรรม
 ➡️ **เรียกใช้:** [Playbook B: Transformative Innovation Pipeline](./references/playbook_transformative_innovation.md)
 
-### Route 3: การประเมินกลยุทธ์และวิสัยทัศน์ระยะยาว (Strategic Foresight & Moat)
+### Route 3: การประเมินกลยุทธ์และวิสัยทัศน์ระยะยาว (Strategic Foresight & Moat) — `/strategy`
 หากโจทย์คือ: วางแผนกลยุทธ์องค์กร, วิเคราะห์คู่แข่ง, สร้างปราการป้องกันความเสี่ยง (Moat)
 ➡️ **เรียกใช้:** โฟกัสคู่ประสานมิติ **คิดเชิงอนาคต (10) + คิดเชิงกลยุทธ์ (8) + คิดเชิงบูรณาการ (9)**
 
-### Route 4: การวิเคราะห์เชิงลึกเฉพาะมิติ (Targeted Thinking Dimension)
+### Route 4: การวิเคราะห์เชิงลึกเฉพาะมิติ (Targeted Thinking Dimension) — `/think10`
 หากผู้ใช้ระบุหรือต้องการเจาะจงมิติใดมิติหนึ่งโดยเฉพาะ (เช่น ตรวจสอบความจริงของข้อมูล หรือ คิดนอกกรอบ)
 ➡️ **เปิดอ่านคู่มือมิตินั้นโดยตรง** ในโฟลเดอร์ [references/](./references/)
 
-### Route 5: สภาความคิด 3 ฝ่ายและการดีเบตจำลอง (Multi-Agent Council & Red Team)
+### Route 5: สภาความคิด 3 ฝ่ายและการดีเบตจำลอง (Multi-Agent Council & Red Team) — `/council`
 หากต้องการทดสอบความแข็งแกร่งของแผนงานอย่างถึงแก่น ผ่านการปะทะทางปัญญาของ The Inquisitor, The Visionary, และ The Grandmaster
 ➡️ **เรียกใช้:** [Playbook C: Multi-Agent Cognitive Council & Red Team Debate](./references/playbook_cognitive_council_debate.md)
 
-### Route 6: การสแกนตรวจจับจุดบอดทางความคิด (Cognitive Blindspot Scanning & Radar)
+### Route 6: การสแกนตรวจจับจุดบอดทางความคิด (Cognitive Blindspot Scanning & Radar) — `/blindspot`
 หากต้องการประเมินความสมดุลของแผนงานบนแกน กว้าง-ลึก-ไกล และตรวจหาจุดบอดสำคัญ
 ➡️ **เรียกใช้:** [คู่มือและเกณฑ์สแกนจุดบอดทางความคิด](./references/cognitive_blindspot_scanner.md) หรือรันคำสั่ง CLI `think10_cli.py scan`
 

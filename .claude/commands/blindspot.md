@@ -1,0 +1,1 @@
+/Users/nattagid/Code Project/Skills 10 Think/commands/blindspot.md

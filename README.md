@@ -19,13 +19,49 @@ python3 symlink_all_ais.py
 | AI / Tool | ตำแหน่งที่ Symlink เชื่อมโยงไป | รูปแบบการทำงาน |
 |---|---|---|
 | **Antigravity / Gemini** | `~/.gemini/config/skills/ten-thinking-dimensions` และ `~/.gemini/skills/` | โหลดเป็น Native Global Skill อัตโนมัติ |
-| **Claude Code** | `~/.claude/skills/ten-thinking-dimensions` และ `ai-brain-core/skills/` | ใช้งานผ่าน Slash Commands / Skill System |
+| **Claude Code** | `~/.claude/commands/` และ `~/.claude/skills/` | รองรับ Native Slash Commands (`/`) ใน CLI |
 | **Cursor** | `~/.cursor/rules/ten-thinking-dimensions.mdc` และ `.cursorrules` | บังคับใช้เป็น Global & Workspace AI Rule |
 | **Windsurf (Codeium)** | `.windsurfrules` | กฎจิตใต้สำนึกทางปัญญาของ Workspace |
 | **Cline** | `~/.cline/skills/ten-thinking-dimensions` และ `.clinerules` | Skill และ Workspace Rules |
 | **Roo Code** | `~/.roo/skills/ten-thinking-dimensions` | Roo Coding Agent Skill |
 | **Continue.dev** | `~/.continue/skills/ten-thinking-dimensions` | Assistant Context & Prompts |
 | **GitHub Copilot** | `.github/copilot-instructions.md` | Workspace Instructions ประจำ Repository |
+
+---
+
+## ⚡ การเรียกใช้โหมดต่างๆ ผ่านคำสั่งทางลัด Slash Command ("/")
+
+คุณสามารถสั่งการ AI ทุกตัวด้วยคำสั่งย่อที่ขึ้นต้นด้วยเครื่องหมาย **Slash (`/`)** ได้ทันที สะดวก รวดเร็ว และแม่นยำ ไม่ต้องพิมพ์อธิบายยาว:
+
+### 📋 สรุปรายการคำสั่งทางลัด:
+
+| คำสั่ง (Slash Command) | โหมดการทำงาน | ผลลัพธ์และขั้นตอนที่ AI จะดำเนินการ | ตัวอย่างการใช้งานจริง |
+|---|---|---|---|
+| **`/cps`** | **แก้ปัญหาซับซ้อน (4 ขั้นตอน)** | ชำแหละรากเหง้า (Critical+Analytical) ➔ ออกแบบทางเลือก (Comparative+Creative+Synthesis) ➔ วางคานงัดและอนาคต (Futuristic+Strategic) ➔ บูรณาการสลายขัดแย้ง | `/cps ยอดขายหน้าร้านตก 35% แต่ต้นทุนวัตถุดิบสูงขึ้น 20%` |
+| **`/innovate`** | **สร้างนวัตกรรมก้าวกระโดด (6 ระยะ)** | ท่อส่งนวัตกรรม 10-D: หาช่องว่างที่ซ่อนอยู่ ➔ สกัดแก่นคุณค่าใหม่ ➔ ไอเดียนอกกรอบ ➔ สถาปัตยกรรมโมเดลธุรกิจ ➔ คูเมือง Moat ➔ บูรณาการระบบนิเวศ | `/innovate บริการ Subscription กาแฟเพื่อสุขภาพสำหรับพนักงานออฟฟิศ` |
+| **`/strategy`** | **ยุทธศาสตร์และคูเมืองป้องกัน** | วางหมากยุทธศาสตร์ 3 ชั้น + ทดสอบ 3 ฉากทัศน์อนาคต (Best/Base/Worst) + กำหนดจุดคานงัดสร้างความได้เปรียบยั่งยืน | `/strategy แผนขยายสาขา 10 เท่าใน 2 ปีแข่งกับเชนยักษ์ใหญ่` |
+| **`/council`** | **สภาไตรปัญญา Red Teaming** | จำลอง 3 บทบาทปัญญาถกเถียง: 🎭 ผู้รอบรู้ (ชี้โอกาส/สากล) ปะทะ ⚔️ ผู้ท้าทาย (เจาะจุดอ่อน/จับผิด) ➔ 🧩 ผู้ประสาน (เคาะฉันทามติยุทธศาสตร์) | `/council แผนการลดราคา 50% เพื่อแย่งชิงส่วนแบ่งตลาดในไตรมาสหน้า` |
+| **`/blindspot`** | **สแกนตรวจจับจุดบอด 10 มิติ** | ตรวจ 5 โซนอันตราย (แก้แต่อาการ, ด่วนสรุป, ไซโล, มองมิติเดียว, แผนนิ่ง) พร้อมเรดาร์คะแนน กว้าง-ลึก-ไกล และมาตรการอุดรูรั่ว | `/blindspot ตรวจสอบสถาปัตยกรรมระบบชำระเงินและโมเดลข้อมูลนี้` |
+| **`/think10`** | **วิเคราะห์ครบ 10 มิติรอบด้าน** | วิเคราะห์ประเด็นผ่านแกนพิกัด 3 มิติ (ลึก-กว้าง-ไกล) ครบถ้วนทั้ง 10 มิติการคิด พร้อมเรดาร์คะแนนความครอบคลุม | `/think10 การนำ Generative AI มาใช้ในกระบวนการจัดซื้อขององค์กร` |
+| **`/ground`** | **ตรวจสอบข้อเท็จจริงเชิงประจักษ์** | ค้นหาข้อมูลสถิติล่าสุด ตรวจสอบ Fact vs Opinion จัดระดับความน่าเชื่อถือ และจับอคติหรือการอ้างเกินจริง | `/ground ตลาดกาแฟพิเศษในไทยกำลังอิ่มตัวและจะหดตัวลงในปีหน้า` |
+| **`/wizard`** | **รัน Strategy CLI Wizard** | แนะนำคำสั่งรัน Interactive CLI เพื่อตอบคำถามทีละสเต็ป | `/wizard` |
+
+---
+
+### 💡 วิธีใช้งานใน AI แต่ละแพลตฟอร์ม:
+
+1. **ใน Claude Code (Terminal CLI):**
+   - เพียงเปิด Terminal พิมพ์ `claude`
+   - เมื่อพิมพ์ `/` จะมี **Autocomplete Menu** แสดงรายชื่อคำสั่ง `/cps`, `/innovate`, `/council` ฯลฯ ขึ้นมาให้เลือกทันที!
+   - สามารถพิมพ์ต่อท้ายได้เลย เช่น: `/cps ปัญหาลูกค้าลดลง 30%`
+
+2. **ใน Antigravity (Google Gemini):**
+   - พิมพ์ในช่องแชทได้ทันที เช่น: `/innovate แพลตฟอร์มจับคู่ฟรีแลนซ์สายสุขภาพ`
+   - AI จะตรวจจับ Directive อัตโนมัติและสลับเข้าสู่โหมด 10-D Innovation Pipeline ทันที
+
+3. **ใน Cursor / Windsurf / Cline / Roo Code / Copilot:**
+   - พิมพ์ `/council [แผนงาน]` หรือ `/blindspot [โค้ดหรือแผนงาน]` ในกล่อง Prompt หรือ Composer
+   - AI ทุกตัวที่เชื่อมโยงกฎไว้จะปฏิบัติตามคำสั่งของโหมดนั้นทันที 100%
 
 ---
 

@@ -6,29 +6,30 @@ Creates symlinks for: Antigravity, Claude Code, Cursor, Windsurf, Cline, Roo Cod
 
 import os
 import sys
+import shutil
 from pathlib import Path
 
 SKILL_NAME = "ten-thinking-dimensions"
 
 def create_symlink(target_path, link_path):
-    target = Path(target_path).resolve()
-    link = Path(link_path).resolve()
+    target = os.path.abspath(os.path.expanduser(str(target_path)))
+    link = os.path.abspath(os.path.expanduser(str(link_path)))
 
-    if not target.exists():
+    if not os.path.exists(target):
         print(f"[-] Target does not exist: {target}")
         return False
 
-    link.parent.mkdir(parents=True, exist_ok=True)
+    os.makedirs(os.path.dirname(link), exist_ok=True)
 
-    if link.is_symlink() or link.exists():
-        if link.is_dir() and not link.is_symlink():
-            import shutil
+    # Check if link exists or is a symlink (including broken symlinks)
+    if os.path.islink(link) or os.path.exists(link):
+        if os.path.isdir(link) and not os.path.islink(link):
             shutil.rmtree(link)
         else:
-            link.unlink()
+            os.unlink(link)
 
     try:
-        link.symlink_to(target)
+        os.symlink(target, link)
         print(f"[SUCCESS] {link} -> {target}")
         return True
     except Exception as e:
@@ -75,6 +76,16 @@ def main():
     links.append((rule_src, script_dir / ".windsurfrules"))
     links.append((rule_src, script_dir / ".clinerules"))
     links.append((rule_src, script_dir / ".github" / "copilot-instructions.md"))
+
+    # 7. Claude Code Slash Commands (Workspace & Global ~/.claude/commands/)
+    commands_dir = script_dir / "commands"
+    claude_commands_home = home / ".claude" / "commands"
+    workspace_claude_commands = script_dir / ".claude" / "commands"
+    if commands_dir.exists():
+        for cmd_file in commands_dir.glob("*.md"):
+            links.append((cmd_file, claude_commands_home / cmd_file.name))
+            links.append((cmd_file, workspace_claude_commands / cmd_file.name))
+
 
     success_count = 0
     for target, link in links:

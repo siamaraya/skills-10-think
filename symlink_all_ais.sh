@@ -65,9 +65,21 @@ link_item "$RULE_SRC" "$SCRIPT_DIR/.windsurfrules"
 link_item "$RULE_SRC" "$SCRIPT_DIR/.clinerules"
 link_item "$RULE_SRC" "$SCRIPT_DIR/.github/copilot-instructions.md"
 
+# 7. Claude Code Slash Commands (Workspace & Global ~/.claude/commands/)
+mkdir -p "$HOME/.claude/commands"
+mkdir -p "$SCRIPT_DIR/.claude/commands"
+for cmd_file in "$SCRIPT_DIR/commands"/*.md; do
+  if [ -f "$cmd_file" ]; then
+    link_item "$cmd_file" "$HOME/.claude/commands/$(basename "$cmd_file")"
+    link_item "$cmd_file" "$SCRIPT_DIR/.claude/commands/$(basename "$cmd_file")"
+  fi
+done
+
+
 echo ""
 echo "============================================================"
 echo "🎉 Symlinks configured successfully!"
 echo "Any update made in this repository is instantly synced"
 echo "across all AI assistants on your system without re-copying."
 echo "============================================================"
+

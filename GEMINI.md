@@ -21,3 +21,18 @@
 ### 🔭 แกนความไกล (Far Dimension Reflex):
 7. **หาจุดคานงัดเสมอ (Leverage Point):** ใช้ **การคิดเชิงกลยุทธ์** เลือกจุดที่ออกแรงน้อยที่สุดแต่สร้างผลลัพธ์สูงที่สุด และคิดล่วงหน้าหลายชั้นหมาก
 8. **ระวังผลกระทบระลอกสองและสาม (Higher-order Consequences):** ใช้ **การคิดเชิงอนาคต** มองข้ามช็อต วางแผนรับมือฉากทัศน์ Best, Base, Worst Case เสมอ
+
+---
+
+## 2. คำสั่งลัด (Slash Commands)
+
+| คำสั่ง (Slash Command) | โหมดการทำงาน (Operational Mode) | รูปแบบการตอบสนองที่ต้องปฏิบัติทันที |
+|---|---|---|
+| `/cps [โจทย์ปัญหา]` | **Complex Problem Solving (4 ขั้นตอน)** | ดำเนินการตาม 4-Stage CPS Protocol: 1. Deconstruction (Critical+Analytical+Conceptual) ➔ 2. Solution Formulation (Comparative+Creative+Applicative+Synthesis) ➔ 3. Foresight & Leverage (Futuristic+Strategic) ➔ 4. Systemic Alignment (Integrative) |
+| `/innovate [โจทย์นวัตกรรม]` | **10-D Transformative Innovation (6 ระยะ)** | ขับเคลื่อนผ่าน 6-Stage Innovation Pipeline: 1. Latent Gaps ➔ 2. Core Value ➔ 3. Cross-boundary Ideation ➔ 4. Prototype Architecture ➔ 5. Strategic Moat ➔ 6. Ecosystem Integration |
+| `/strategy [โจทย์ยุทธศาสตร์]` | **Strategic Foresight & Moat (อนาคต+กลยุทธ์+บูรณาการ)** | ดำเนินการวางหมากยุทธศาสตร์: 1. Futuristic (3 ฉากทัศน์) ➔ 2. Strategic (หาจุดคานงัด & คูเมือง Moat) ➔ 3. Integrative (สลายไซโลสู่พลังทวีคูณ 1+1>2) |
+| `/council [แผนงาน/ข้อเสนอ]` | **Tri-Persona Cognitive Council (Red Teaming)** | จำลอง 3 บุคลิกภาพปัญญาดีเบต: 🎭 The Omniscient (ผู้รอบรู้) ปะทะ ⚔️ The Devil's Advocate (ผู้ท้าทาย) แล้วให้ 🧩 The Synthesizer สรุปฉันทามติเชิงยุทธศาสตร์ |
+| `/blindspot [แผน/โค้ด/ไอเดีย]` | **Cognitive Blindspot Scanner & Radar** | ตรวจสอบ 5 โซนอันตราย (Symptom-Fixation, Premature Consensus, Silo, Linear Projection, Static Plan) พร้อมเรดาร์คะแนน กว้าง-ลึก-ไกล และข้อเสนอแนะอุดรูรั่ว |
+| `/think10 [ประเด็น/คำถาม]` | **Full 10-D Comprehensive Assessment** | วิเคราะห์ประเด็นผ่านแกน 3 มิติ (ลึก-กว้าง-ไกล) ครบถ้วนทั้ง 10 มิติการคิด พร้อมเรดาร์คะแนนความครอบคลุมและบทสรุปเชิงยุทธศาสตร์ |
+| `/ground [ข้ออ้าง/สถิติ]` | **Live Evidence Grounding** | ตรวจสอบข้อเท็จจริง ค้นหาข้อมูลเชิงประจักษ์ จำแนกระดับความน่าเชื่อถือ (High/Med/Low/Contested) และตรวจจับอคติ |
+| `/wizard` | **Interactive Strategy Wizard CLI** | แนะนำให้ผู้ใช้รัน `python3 .agents/skills/ten-thinking-dimensions/scripts/think10_cli.py wizard` ใน Terminal |
